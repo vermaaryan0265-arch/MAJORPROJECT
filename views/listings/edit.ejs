@@ -1,0 +1,73 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust</title>
+</head>
+<body> -->
+    <%= layout("/layouts/boilerplate") %>
+    <h3>Edit your Listings</h3>
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" >
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input name="listing[title]" value="<%= listing.title %>" 
+            type="text" 
+            class="form-control" 
+            enctype="multipart/form-data"
+            required>
+           
+        </div>
+        <div class="mb-3 ">
+            <label for="description" class="form-label">Description</labele>
+                <textarea name="listing[description]" class="form-control"required rows="5"
+                style="width: 100%;"><%= listing.description %></textarea>
+
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload New Image </label>
+            <input name="listing[image][url]"
+            type="file"
+            class="form-control"
+          >
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">Price</label>
+                 <input name="listing[price]"class="form-control" value="<%= listing.price %>" required type="number">
+              </div>
+              <div class="mb-3 col-md-4">
+                <label for="country" class="form-label">Country</label>
+                <input name="listing[country]"class="form-control" value="<%= listing.country %>" required type="text">
+             </div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input name="listing[location]" class="form-control"value="<%= listing.location %>" required type="text">
+         </div>
+          
+         <br><br>
+          <button class="btn btn-dark add-btn">Edit</button>
+        </form>
+        <script>
+            (() => {
+            "use strict";
+          
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation');
+          
+            // Loop over them and prevent submission
+            Array.from(forms).forEach((form) => {
+              form.addEventListener("submit", (event) => {
+                if (!form.checkValidity()) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+          
+                form.classList.add('was-validated')
+              }, false);
+            });
+          })();
+           </script>
+<!-- </body>
+</html> -->
