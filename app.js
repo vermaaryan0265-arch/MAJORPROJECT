@@ -104,6 +104,9 @@ const sessionOptions = {
 };
 
 
+app.get("/", (req, res) => {
+    res.send("Website is running!");
+  });
 
 
 
@@ -130,7 +133,6 @@ app.use(flash());
 // app.use("/listings",listingRouter);
 // app.use("/listings/:id/review",reviewsRouter);
 // app.use("/", userRouter );
-
 
 
 
@@ -168,15 +170,20 @@ app.use("/", userRouter );
 
 
 
-app.listen(8080,() => {
-    console.log("server is listening to port 8080");
+// app.listen(8080,() => {
+//     console.log("server is listening to port 8080");
+// });
+
+
+
+
+const PORT = process.env.PORT || 3000;
+
+
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
-
-
-
-
-
 
 
 
