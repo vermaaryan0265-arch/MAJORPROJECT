@@ -105,9 +105,8 @@ const sessionOptions = {
 
 
 app.get("/", (req, res) => {
-    res.send("Website is running!");
+    res.redirect("/listings");
   });
-
 
 
 //ROUTE CREATED
